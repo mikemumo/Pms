@@ -18,12 +18,14 @@ Route::get('/', function () {
 });
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::resource('projects', 'ProjectsController' );
+Route::resource('tasks', 'TasksController' );
+Route::resource('roles', 'RolesController' );
+Route::resource('users', 'UsersController' );
+Route::resource('schedules', 'SchedulesController');
 
 
 Auth::routes();
 
-Route::resource('projects', 'ProjectsController' );
-Route::resource('tasks', 'TaksController' );
-Route::resource('roles', 'RolesController' );
-Route::resource('users', 'UsersController' );
+
 

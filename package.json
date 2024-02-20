@@ -24,6 +24,7 @@
     },
     "dependencies": {
         "admin-lte": "3.2",
+        "bootstrap-icons": "^1.11.3",
         "flatpickr": "^4.6.13"
     }
 }

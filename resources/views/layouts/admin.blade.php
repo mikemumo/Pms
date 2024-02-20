@@ -99,7 +99,7 @@
                             <span class="opacity-50">Progress</span>
                         </li>
                         <li class="menu-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('schedules.index')}}" class="nav-link">
                                 <span class="menu-icon">
                                 <i class="fas fa-clipboard-list"></i>
                                 </span>
@@ -107,7 +107,7 @@
                             </a>
                         </li>
                         <li class="menu-item py-1">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('tasks.index')}}" class="nav-link">
                                 <span class="menu-icon">
                                     <i class="nav-icon fas fa-list"></i>
                                 </span>

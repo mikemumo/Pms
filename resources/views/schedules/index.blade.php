@@ -1,8 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-@section('title')
-Tasks
-@endsection
 <div class="container">
     <!--begin::Card-->
     <div class="card">
@@ -11,8 +8,8 @@ Tasks
             <!--begin::Heading-->
             <div class="d-flex flex-stack flex-wrap flex-sm-nowrap">
                 <h1 class="anchor fw-bolder">
-                    <a href="#"></a>Task &nbsp
-                    <span class="text-muted mt-2 fw-bold fs-6"> </span>
+                    <a href="#"></a>Schedule &nbsp
+                    <span class="text-muted mt-2 fw-bold fs-6"> - Create and update data</span>
                 </h1>
             </div>
             <!--end::Heading-->
@@ -23,9 +20,8 @@ Tasks
                     <thead>
                         <tr class="fw-bold fs-6 text-gray-800 border-bottom border-gray-200">
                             <th>No</th>
-                            <th>Date</th>
-                            <th>Task</th>
-                            <th>Status</th>
+                            <th>Project</th>
+                            <th>Task Schedule</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -33,6 +29,7 @@ Tasks
                     
                     </tbody>
                 </table>
+                
             </div>
             <!--end::Table-->
         </div>
@@ -40,5 +37,4 @@ Tasks
     </div>
     <!--end::Card-->
 </div>
-
 @endsection

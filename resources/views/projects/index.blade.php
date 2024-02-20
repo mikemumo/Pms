@@ -14,6 +14,7 @@ Projects
             <a href="{{ route('projects.create')}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Add Project</a>
         </div>
     </div>
+    <hr/>
     <div class="card-body p-0">
         <table id="datatable" class="table table-striped projects">
             <thead>
@@ -51,12 +52,12 @@ Projects
                 </td>
 
                 <td class="project-actions text-right">
-                    <a class="btn btn-primary btn-sm" href="/projects{{$project->id}}">
+                    <a class="btn btn-primary btn-sm" href="/projects/{{$project->id}}/show">
                         <i class="fas fa-folder"></i>
                         View
                     </a>
 
-                    <a href="/projects/{{$project->id}}/edit/" class="btn btn-info btn-sm">
+                    <a href="/projects/{{$project->id}}/edit" class="btn btn-info btn-sm">
                         <i class="fas fa-pencil-alt"></i>
                         Edit
                     </a>
