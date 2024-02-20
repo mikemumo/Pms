@@ -56,7 +56,7 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Project $project)
     {
         //
         $project = Project::find($project->id); 
@@ -70,11 +70,11 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Project $project)
     {
         //
         $project = Project::find($project->id); 
-        return view('projects.edit', ['project'=>$project]);
+        return view('projects.edit', ['projects'=>$project]);
     }
 
     /**

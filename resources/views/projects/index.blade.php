@@ -11,10 +11,10 @@ Projects
     <div class="card-header">
         <h3 class="card-title">Projects</h3>
         <div class="card-tools">
-            <a href="{{ route('projects.create')}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Add Project</a>
+            <a href="{{ route('projects.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Project</a>
         </div>
     </div>
-    <hr/>
+    
     <div class="card-body p-0">
         <table id="datatable" class="table table-striped projects">
             <thead>
@@ -52,7 +52,7 @@ Projects
                 </td>
 
                 <td class="project-actions text-right">
-                    <a class="btn btn-primary btn-sm" href="/projects/{{$project->id}}/show">
+                    <a class="btn btn-primary btn-sm" href="/projects/{{$project->id}}">
                         <i class="fas fa-folder"></i>
                         View
                     </a>

@@ -3,15 +3,15 @@
 
 @section('content')
 @section('title')
-Project Create
+Project Edit
 @endsection
 <section class="content">
 
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Create Project Data</h3>
+            <h3 class="card-title">Update Project Data</h3>
                 <div class="card-tools">
-                    <a href="#" class="btn btn-light"></i> Back</a>
+                    <a href="{{ route('projects.index') }}" class="btn btn-light"></i> Back</a>
                     <button type="submit" class="btn btn-success">Save</button>
                 </div>    
         </div>

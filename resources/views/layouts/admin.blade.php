@@ -29,14 +29,13 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i> <b>Student Project Management System</b></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
+               
             </ul>
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
@@ -62,7 +61,7 @@
             <!-- Brand Logo -->
             <a href="index.html" class="brand-link">
                
-                <span class="brand-text font-weight-bold">Project System</span>
+                <span class="brand-text font-weight-bold">Project Managenent System</span>
             </a>
 
             <!-- Sidebar -->
@@ -141,9 +140,17 @@
                         <li class="menu-item py-1">
                             <a href="" class="nav-link">
                                 <span class="menu-item">
-                                <i class="fas fa-info-circle"></i>
+                                <i class="bi bi-collection"></i>
                                 </span>
-                            <span class="menu-title">Progress Report</span>
+                            <span class="menu-title">Project Summary</span>
+                            </a>
+                        </li>
+                        <li class="menu-item py-1">
+                            <a href="" class="nav-link">
+                                <span class="menu-item">
+                                <i class="bi bi-collection"></i>
+                                </span>
+                            <span class="menu-title">Task Status</span>
                             </a>
                         </li>
                     </ul>
