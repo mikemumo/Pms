@@ -14,8 +14,8 @@ class CreateProjectUserTable extends Migration
     public function up()
     {
         Schema::create('project_user', function (Blueprint $table) {
-            $table->id();
-            $table->integer('project_id')->unsigned();
+            $table->increments('id');
+            $table->integer('project_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->nullable();
 
             $table->foreign('project_id')->references('id')->on('projects');

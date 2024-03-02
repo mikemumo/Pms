@@ -11,7 +11,7 @@
         <form action="{{ route('register') }}" method="post">
             @csrf
             <div class="input-group mb-3">
-                <input id="name" type="text" placeholder="Name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>                <div class="input-group-append">
+                <input id="name" type="text" placeholder="First Name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>  <div class="input-group-append">
                     <div class="input-group-text">
                     <span class="fas fa-user"></span>
                     </div>
@@ -36,6 +36,8 @@
                     </span>
                 @enderror
             </div>
+
+            
 
 
             <div class="input-group mb-3">

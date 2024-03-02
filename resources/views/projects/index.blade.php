@@ -31,7 +31,7 @@ Projects
         <tbody>
             @foreach($projects as $project)
             <tr>
-                <td>#</td>
+                <td>{{$project->id}}</td>
                 <td>{{$project->name}}</td>
                 <td>
                     <ul class="list-inline">
@@ -53,11 +53,11 @@ Projects
 
                 <td class="project-actions text-right">
                     <a class="btn btn-primary btn-sm" href="/projects/{{$project->id}}">
-                        <i class="fas fa-folder"></i>
+                        <i class="bi bi-binoculars"></i>
                         View
                     </a>
 
-                    <a href="/projects/{{$project->id}}/edit" class="btn btn-info btn-sm">
+                   <a href="/projects/{{$project->id}}/edit" class="btn btn-info btn-sm">
                         <i class="fas fa-pencil-alt"></i>
                         Edit
                     </a>

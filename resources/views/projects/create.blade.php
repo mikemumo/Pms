@@ -12,27 +12,30 @@ Project Create
         @csrf
         @method('post')
         <div class="card-header">
-            <h3 class="card-title">Create Project Data</h3>
+            <h3 class="card-title">
+                <span class="fw-bolder text-dark fs-3 me-2">Create Project Data</span>
+                <span class="text-muted mt-2 fw-bold fs-6"> - Form to create a new data</span>
+            </h3>
                 <div class="card-tools">
-                    <a href="{{ route('projects.index') }}" class="btn btn-light"></i> Back</a>
+                    <a href="{{ route('projects.index') }}" class="btn btn-light mx-5"></i> Back</a>
                     <button type="submit" class="btn btn-success">Save</button>
                 </div>    
         </div>
-            <hr class="mb-10">
+            <br>
                 <div class="d-flex">
                     <div class="col-sm-6 px-5">
                             <div class="mb-10">
-                                <label class="form-label">Project Name</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Project Name"  required="" onkeydown="return /[a-zA-Z]/i.test(event.key)">
+                                <label class="form-label">Project Title</label>
+                                    <input type="text" class="form-control" name="name" placeholder="Project Title"  required="" onkeydown="return /[a-zA-Z]/i.test(event.key)">
                                 </div><br>
                                 
                                 <div class="mb-10">
                                     <label class="form-label">Project Description</label>
-                                    <textarea type="textarea" class="form-control h-150px" name="description" placeholder="Description"  required="" onkeydown="return /[a-zA-Z]/i.test(event.key)"></textarea>
+                                    <textarea type="textarea" class="form-control h-150px" name="description" placeholder="Description"  required="" ></textarea>
                                 </div>
                             </div>
                         
-                            <div class="col-sm-6 px-5" id="reservationdatetime" data-target-input="nearest">
+                            <div class="col-sm-6 px-5" >
                                 <div class="mb-10">
                                     <label for="" class="form-label">Start Date</label>
                                     <input type="date" name="start_date" class="form-control flatpickr-input" placeholder="Pick a date" id="Startdate" required=""  >

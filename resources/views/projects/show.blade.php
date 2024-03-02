@@ -16,14 +16,14 @@ Project View
           </h3>
           <div class="card-tools">
             <a href="{{ route('projects.index') }}" class="btn btn-light"></i> Back</a>
-            <button type="submit" class="btn btn-success">Save</button>
+            
         </div> 
 
          
       </div>
-      <div class="px-10 mb-5">
-      <hr> 
-      
+      <div class="px-5 mb-3 pt-3">
+        <span class="card-label fs-6"><b>Project Title : </b><br>{{$project->name}}</span>
+      </div>
       <div class="mb-3 pt-3 px-5">
           <span class="card-label fs-6"><b>Description : </b><br>{{$project->description}}</span>
       </div>

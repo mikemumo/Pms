@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Project;
 use App\Task;
 use Illuminate\Http\Request;
 
@@ -15,6 +15,7 @@ class TasksController extends Controller
     public function index()
     {
         //
+        $project = Project::all();
         return view('tasks.index');
     }
 
@@ -26,6 +27,7 @@ class TasksController extends Controller
     public function create()
     {
         //
+        return view('tasks.create');
     }
 
     /**
@@ -48,6 +50,8 @@ class TasksController extends Controller
     public function show(Task $task)
     {
         //
+       $projects = $task->projects;
+
     }
 
     /**

@@ -9,7 +9,7 @@ Tasks
         <div class="card-header">
             <h1 class="card-title">Tasks</h1>
             <div class="card-tools">
-                
+                <a href="{{ route('tasks.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Task</a>
             </div>
         </div>
         

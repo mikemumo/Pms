@@ -15,8 +15,9 @@ class ProjectsController extends Controller
     public function index()
     {
         //
-        $projects = Project::all();
-        return view('projects.index', ['projects'=>$projects]);
+        
+        $project = Project::all();
+        return view('projects.index', ['projects'=>$project]);
     }
 
     /**
@@ -74,7 +75,7 @@ class ProjectsController extends Controller
     {
         //
         $project = Project::find($project->id); 
-        return view('projects.edit', ['projects'=>$project]);
+        return view('projects.edit', ['project'=>$project]);
     }
 
     /**
@@ -84,9 +85,24 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Project $project)
     {
-        //
+        //save data
+
+        $projectUpdate = Project::where('id', $project->id)->update([
+            'name'=>$request ->input('name'),
+            'description'=>$request ->input('description'),
+            'start_date'=>$request ->input('start_date'),
+            'end_date'=>$request ->input('end_date'),
+            'attachment'=>$request ->input('attachment'),
+        ]);
+                
+        if($projectUpdate){
+            return redirect()->back('projects.index', ['project'=>$project->id])->with('success', 'Project Updated Successfully');
+        }
+        //redirect
+        return back()->withInput();
+        
     }
 
     /**

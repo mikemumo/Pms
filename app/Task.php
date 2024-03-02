@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Project;
 class Task extends Model
 {
     //
@@ -11,8 +11,7 @@ class Task extends Model
         'name',
         'start_date',
         'end_date',
-        'project_id',
-        'user_id'
+        
         
     ];
 

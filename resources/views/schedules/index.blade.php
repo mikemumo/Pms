@@ -6,7 +6,7 @@
         <div class="card-header">
             <h1 class="card-title">Schedule</h1>
             <div class="card-tools">
-                <a href="#" class="btn btn-primary"><i class="fas fa-plus"></i> Add Schedule</a>
+                
             </div>
         </div>
         
