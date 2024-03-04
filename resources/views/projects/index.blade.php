@@ -24,7 +24,7 @@ Projects
                 <th style="width: 20%">Date</th>
                 <th style="width:23%">Project Progress</th>   
                 <th style="width: 8%" class="text-center">Status</th>
-                <th style="width: 20%" class="text-center">Action</th>
+                <th style="width: 15%" class="text-center">Action</th>
             </tr>
            </thead>
 
@@ -48,24 +48,37 @@ Projects
                 </td>
 
                 <td class="project-state">
-                    <span class="badge badge-primary">Ongoing</span>
+                    <span class="badge badge-info">Ongoing</span>
                 </td>
 
                 <td class="project-actions text-right">
                     <a class="btn btn-primary btn-sm" href="/projects/{{$project->id}}">
-                        <i class="bi bi-binoculars"></i>
-                        View
+                        <i class="bi bi-arrow-up-right"></i>
+                        Detail
                     </a>
 
-                   <a href="/projects/{{$project->id}}/edit" class="btn btn-info btn-sm">
+                   <!--<a href="/projects/{{$project->id}}/edit" class="btn btn-info btn-sm">
                         <i class="fas fa-pencil-alt"></i>
                         Edit
-                    </a>
+                    </a>-->
 
-                    <a class="btn btn-danger btn-sm" href="#">
+                    <!--<a href="#" 
+                    onclick="
+                  var result = confirm('Are you sure you wish to delete this project?');
+                      if( result ){
+                              event.preventDefault();
+                              document.getElementById('delete-form').submit();
+                      }
+                          "class="btn btn-danger btn-sm" >
+
                         <i class="fas fa-trash"> </i>
                         Delete
                     </a>
+                    <form id="delete-form" action="{{ route('projects.destroy',[$project->id]) }}" 
+                        method="POST" style="display: none;">
+                                <input type="hidden" name="_method" value="delete">
+                                {{ csrf_field() }}
+                      </form>-->
                 </td>
             </tr>
             @endforeach

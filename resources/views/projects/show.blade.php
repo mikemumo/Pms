@@ -15,8 +15,30 @@ Project View
               <span class="text-muted mt-2 fw-bold fs-6"> </span>
           </h3>
           <div class="card-tools">
-            <a href="{{ route('projects.index') }}" class="btn btn-light"></i> Back</a>
-            
+            <a href="{{ route('projects.index') }}" class="btn btn-light"></i> Back</a> 
+
+            <a href="/projects/{{$project->id}}/edit" class="btn btn-info btn-sm">
+                <i class="bi bi-pencil"></i>
+                Edit
+            </a>
+
+            <a href="#" 
+                    onclick="
+                  var result = confirm('Are you sure you wish to delete this project?');
+                      if( result ){
+                              event.preventDefault();
+                              document.getElementById('delete-form').submit();
+                      }
+                          "class="btn btn-danger btn-sm" >
+
+                        <i class="bi bi-x"></i>
+                        Delete
+                    </a>
+                    <form id="delete-form" action="{{ route('projects.destroy',[$project->id]) }}" 
+                        method="POST" style="display: none;">
+                                <input type="hidden" name="_method" value="delete">
+                                {{ csrf_field() }}
+                      </form>
         </div> 
 
          

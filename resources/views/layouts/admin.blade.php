@@ -61,7 +61,7 @@
             <!-- Brand Logo -->
             <a href="index.html" class="brand-link">
                
-                <span class="brand-text font-weight-bold">Project Managenent System</span>
+                <span class="brand-text font-weight-bold">SPMS</span>
             </a>
 
             <!-- Sidebar -->

@@ -40,6 +40,13 @@ class ProjectsController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required|min:3|max:50|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
+            'description' => 'required|min:5|max:200|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date'
+
+        ]);
         $project = Project::create([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
@@ -111,8 +118,16 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
         //
+        $findproject = Project::find($project->id);
+        if($findproject->delete()){
+
+            //redirect
+            return redirect()->route('projects.index')->with('success', 'project deleted successfully' );
+        }
+        return back()->withInput()->with('error', 'project could not be deleted');
+    
     }
 }

@@ -7,10 +7,14 @@ Project Create
 @endsection
 <section class="content">
 
+
+    
     <div class="card">
     <form method ="POST" action="{{route('projects.store')}}">
         @csrf
         @method('post')
+
+         
         <div class="card-header">
             <h3 class="card-title">
                 <span class="fw-bolder text-dark fs-3 me-2">Create Project Data</span>
@@ -25,8 +29,8 @@ Project Create
                 <div class="d-flex">
                     <div class="col-sm-6 px-5">
                             <div class="mb-10">
-                                <label class="form-label">Project Title</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Project Title"  required="" onkeydown="return /[a-zA-Z]/i.test(event.key)">
+                                <label class="form-label">Project Name</label>
+                                    <input type="text" class="form-control" name="name" placeholder="Project Name"  required="" >
                                 </div><br>
                                 
                                 <div class="mb-10">

@@ -56,7 +56,7 @@ Tasks
                                 
                                 <div class="mb-10">
                                     <label class="form-label">Task Description</label>
-                                    <textarea type="textarea" class="form-control h-150px" name="description" placeholder="Description"  required="" onkeydown="return /[a-zA-Z]/i.test(event.key)"></textarea>
+                                    <textarea type="textarea" class="form-control h-150px" name="description" placeholder="Description"  required="" ></textarea>
                                 </div> <br>  
                                 
                             </div>
@@ -65,13 +65,14 @@ Tasks
                             <div class="col-sm-6 px-5" >
                                 
                                 <div class="form-group">
-                                   
+                               
                                 <label for="" class="form-label">Select Project</label>
                                 <select class="project_id" name="form-control">
                                     
-                                        <option value="">select  </option>
+                                        <option value=""> select  </option>
                                     
                                 </select>
+                                
                                 </div><br>
                                 <div class="mb-10">
                                     <label for="" class="form-label">Start Date</label>
