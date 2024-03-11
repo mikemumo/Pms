@@ -1,12 +1,13 @@
 @extends('layouts.admin')
 @section('content')
 @section('title')
-Tasks
+Task Create
 @endsection
 <section class="content">
     <div class="card">
      
-        <form action="#" method="post">
+        <form action="{{route('tasks.store')}}" method="post">
+            @csrf
             <div class="card-header">
                 
                 <h2 class="card-title align-items-start flex-column">
@@ -15,7 +16,7 @@ Tasks
                 </h2>
                 <div class="card-tools">
                     <a href="{{ route('tasks.index') }}" class="btn btn-light mx-5"></i> Back</a>
-                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="submit" class="btn btn-success" Value="Submit">Save</button>
                 </div>
             </div><br>
             
@@ -51,7 +52,7 @@ Tasks
                     <div class="col-sm-6 px-5">
                             <div class="mb-10">
                                 <label class="form-label">Task Name</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Task Name"  required="" onkeydown="return /[a-zA-Z]/i.test(event.key)">
+                                    <input type="text" class="form-control" name="name" placeholder="Task Name"  required="" >
                                 </div><br>
                                 
                                 <div class="mb-10">
@@ -60,19 +61,28 @@ Tasks
                                 </div> <br>  
                                 
                             </div>
-                    
-                    
+                    @if($projects == null)
+                            <input   
+                            class="form-control"
+                            type="hidden"
+                                    name="project_id"
+                                    value="{{ $project_id }}"
+                                     />
+                            </div>
+                            @endif
+
+                            @if($projects != null)
                             <div class="col-sm-6 px-5" >
-                                
                                 <div class="form-group">
-                               
-                                <label for="" class="form-label">Select Project</label>
-                                <select class="project_id" name="form-control">
-                                    
-                                        <option value=""> select  </option>
-                                    
+                                <label for="project-content" >Select Project</label>
+                                <select name="project_id" class="form-control">
+                                    <option>-- Select Project --</option>
+                                    @foreach($projects as $project)
+                                        
+                                        <option value="{{$project->id}}"> {{$project->name}} </option>
+                                    @endforeach
                                 </select>
-                                
+                                @endif
                                 </div><br>
                                 <div class="mb-10">
                                     <label for="" class="form-label">Start Date</label>

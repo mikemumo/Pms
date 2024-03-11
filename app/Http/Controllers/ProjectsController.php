@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
-
+use Illuminate\Support\Facades\Auth;
 class ProjectsController extends Controller
 {
     /**
@@ -14,8 +14,8 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        //
-        
+        //   
+
         $project = Project::all();
         return view('projects.index', ['projects'=>$project]);
     }
@@ -47,14 +47,18 @@ class ProjectsController extends Controller
             'end_date' => 'required|date|after:start_date'
 
         ]);
-        $project = Project::create([
-            'name' => $request->input('name'),
-            'description' => $request->input('description'),
-            'attachment'=>$request->input('attachment'),
-            'start_date'=>$request->input('start_date'),
-            'end_date'=>$request->input('end_date'),
-            
-        ]); 
+
+        
+            $project = Project::create([
+                'name' => $request->input('name'),
+                'description' => $request->input('description'),
+                'attachment'=>$request->input('attachment'),
+                'start_date'=>$request->input('start_date'),
+                'end_date'=>$request->input('end_date'),
+                        
+            ]); 
+        
+       
         return redirect()->back()->with('success', 'Project Added Successfully');
     }
 

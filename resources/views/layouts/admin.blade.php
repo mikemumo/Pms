@@ -115,7 +115,7 @@
                         </li>
                     
                         <li class="menu-item py-1">
-                            <a href="" class="nav-link">
+                            <a href="{{route('posts.index')}}" class="nav-link">
                                 <span class="menu-icon">
                                 <i class="fas fa-comment-alt"></i>
                                 </span>

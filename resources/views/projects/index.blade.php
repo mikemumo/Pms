@@ -52,7 +52,7 @@ Projects
                 </td>
 
                 <td class="project-actions text-right">
-                    <a class="btn btn-primary btn-sm" href="/projects/{{$project->id}}">
+                    <a class="btn btn-secondary btn-sm" href="/projects/{{$project->id}}">
                         <i class="bi bi-arrow-up-right"></i>
                         Detail
                     </a>

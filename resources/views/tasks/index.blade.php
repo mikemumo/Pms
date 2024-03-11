@@ -17,17 +17,37 @@ Tasks
             <table id="datatable" class="table table-striped projects">
                 <thead>
                 <tr>
-                    <th>No</th>
-                    <th>Date</th>
-                    <th>Task</th>   
-                    <th>Status</th>
-                    <th>Action</th>
+                    <th style="width: 10%">No</th>
+                    <th style="width: 20%">Date</th>
+                    <th style="width: 20%">Task</th>   
+                    <th style="width: 20%" class="">Status</th>
+                    <th style="width: 12% ">Action</th>
                 </tr>
                 </thead>
     
             <tbody>
-                
-    
+            
+                @foreach($tasks as $task)
+            <tr>
+                <td>{{$task->id}}</td>
+                <td>
+                    <ul class="list-inline">
+                        <li>Start date: {{$task->start_date}}</li>
+                        <li>End date: {{$task->end_date}}</li>
+                    </ul>
+                </td>
+                <td>{{$task->name}}</td>
+                <td class="task-state">
+                    <span class="badge badge-info">review</span>
+                </td>
+                <td><td class="project-actions text-right">
+                    <a class="btn btn-secondary btn-sm" href="/tasks/{{$task->id}}">
+                        <i class="bi bi-arrow-up-right"></i>
+                        Update
+                    </a>
+                </td>
+                @endforeach
+            </tr>
             </tbody>
             </table>
         </div>

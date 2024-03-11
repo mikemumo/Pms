@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
 use App\Task;
 use App\Project;
-use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class TasksController extends Controller
 {
     /**
@@ -25,10 +26,13 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($project_id = null)
     {
         //
-        return view('tasks.create');
+        $projects=null;
+       
+        $project=Project::all();
+        return view('tasks.create', ['project_id'=>$project_id, 'projects'=>$project]);
     }
 
     /**
@@ -40,6 +44,7 @@ class TasksController extends Controller
     public function store(Request $request)
     {
         //
+        
         $request->validate([
             'name' => 'required|min:3|max:50|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
             'description' => 'required|min:5|max:200|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
@@ -47,15 +52,19 @@ class TasksController extends Controller
             'end_date' => 'required|date|after:start_date'
 
         ]);
-        $task = Task::create([
-            'name' => $request->input('name'),
-            'description' => $request->input('description'),
-            'attachment'=>$request->input('attachment'),
-            'start_date'=>$request->input('start_date'),
-            'end_date'=>$request->input('end_date'),
-            
-        ]); 
-        return redirect()->back()->with('success', 'Task Added Successfully');
+        
+            $task = Task::create([
+                'name' => $request->input('name'),
+                'description' => $request->input('description'),
+                'attachment'=>$request->input('attachment'),
+                'start_date'=>$request->input('start_date'),
+                'end_date'=>$request->input('end_date'),
+                'project_id'=>$request->input('project_id'),
+                
+            ]); 
+        
+       
+        return redirect()->route('tasks.index')->with('success', 'Task Added Successfully');
     }
 
     /**
@@ -68,8 +77,9 @@ class TasksController extends Controller
     {
         //
         $task = Task::find($task->id); 
+        
         //$task = Task::where('id', $task->id)->first();
-        return view('tasks.show', ['Task'=>$task]);
+        return view('tasks.show', ['task'=>$task]);
     }
 
     /**

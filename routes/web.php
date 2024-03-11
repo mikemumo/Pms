@@ -23,7 +23,8 @@ Route::resource('tasks', 'TasksController' );
 Route::resource('roles', 'RolesController' );
 Route::resource('users', 'UsersController' );
 Route::resource('schedules', 'SchedulesController');
-
+Route::get('/tasks/{task_id}', 'TasksController@showTask');
+Route::resource('posts', 'PostsController');
 
 Auth::routes();
 
