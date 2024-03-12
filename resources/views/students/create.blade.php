@@ -3,25 +3,25 @@
 
 @section('content')
 @section('title')
-Project Create
+Student Create
 @endsection
 <section class="content">
 
 
     
     <div class="card">
-    <form method ="POST" action="{{route('projects.store')}}">
+    <form method ="POST" action="{{route('students.store')}}">
         @csrf
         @method('post')
 
          
         <div class="card-header">
             <h3 class="card-title">
-                <span class="fw-bolder text-dark fs-3 me-2">Create Project Data</span>
+                <span class="fw-bolder text-dark fs-3 me-2">Create Student Data</span>
                 <span class="text-muted mt-2 fw-bold fs-6"> - Form to create a new data</span>
             </h3>
                 <div class="card-tools">
-                    <a href="{{ route('projects.index') }}" class="btn btn-light mx-5"></i> Back</a>
+                    <a href="{{ route('students.index') }}" class="btn btn-light mx-5"></i> Back</a>
                     <button type="submit" class="btn btn-success">Save</button>
                 </div>    
         </div>
@@ -29,25 +29,25 @@ Project Create
                 <div class="d-flex">
                     <div class="col-sm-6 px-5">
                             <div class="mb-10">
-                                <label class="form-label">Project Name</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Project Name"  required="" >
+                                <label class="form-label">Student Name</label>
+                                    <input type="text" class="form-control" name="name" placeholder="eg John Doe"  required="" >
                                 </div><br>
                                 
                                 <div class="mb-10">
-                                    <label class="form-label">Project Description</label>
-                                    <textarea type="textarea" class="form-control h-150px" name="description" placeholder="Description"  required="" ></textarea>
+                                    <label class="form-label">Course</label>
+                                    <input type="text" class="form-control " name="course" placeholder="Course"  required="" ></input>
                                 </div>
                             </div>
                         
                             <div class="col-sm-6 px-5" >
                                 <div class="mb-10">
-                                    <label for="" class="form-label">Start Date</label>
-                                    <input type="date" name="start_date" class="form-control flatpickr-input" placeholder="Pick a date" id="Startdate" required=""  >
+                                    <label for="" class="form-label">Phone</label>
+                                    <input type="text" name="phone" class="form-control " placeholder="eg 0739277464"  required=""  >
                                     
                                 </div><br>
                                 <div class="mb-10">
-                                    <label for="" class="form-label">End Date</label>
-                                    <input type="date" name="end_date" class="form-control flatpickr-input" placeholder="Pick a date" id="Enddate" required=""  >
+                                    <label for="" class="form-label">Email</label>
+                                    <input type="email" name="email" class="form-control " placeholder="eg john@gmail.com"  required=""  >
                                 </div><br>
                                
                                 <br>

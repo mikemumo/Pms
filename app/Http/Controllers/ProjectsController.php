@@ -52,14 +52,13 @@ class ProjectsController extends Controller
             $project = Project::create([
                 'name' => $request->input('name'),
                 'description' => $request->input('description'),
-                'attachment'=>$request->input('attachment'),
                 'start_date'=>$request->input('start_date'),
                 'end_date'=>$request->input('end_date'),
                         
             ]); 
         
        
-        return redirect()->back()->with('success', 'Project Added Successfully');
+        return redirect()->route('projects.index')->with('success', 'Project Added Successfully');
     }
 
     /**
@@ -85,7 +84,7 @@ class ProjectsController extends Controller
     public function edit(Project $project)
     {
         //
-        $project = Project::find($project->id); 
+        $projects=Project::find($project->id);
         return view('projects.edit', ['project'=>$project]);
     }
 
@@ -105,11 +104,11 @@ class ProjectsController extends Controller
             'description'=>$request ->input('description'),
             'start_date'=>$request ->input('start_date'),
             'end_date'=>$request ->input('end_date'),
-            'attachment'=>$request ->input('attachment'),
+            
         ]);
                 
         if($projectUpdate){
-            return redirect()->back('projects.index', ['project'=>$project->id])->with('success', 'Project Updated Successfully');
+            return redirect()->route('projects.index', ['project'=>$project->id])->with('success', 'Project Updated Successfully');
         }
         //redirect
         return back()->withInput();

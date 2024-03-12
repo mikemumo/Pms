@@ -24,8 +24,9 @@ Route::resource('roles', 'RolesController' );
 Route::resource('users', 'UsersController' );
 Route::resource('schedules', 'SchedulesController');
 Route::get('/tasks/{task_id}', 'TasksController@showTask');
-Route::resource('posts', 'PostsController');
 
+Route::resource('posts', 'PostsController');
+Route::resource('students', 'StudentsController');
 Auth::routes();
 
 

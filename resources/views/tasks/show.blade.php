@@ -23,13 +23,17 @@ Task View
                     <div class="d-flex mb-5 mt-10">
                         <div class="col-sm-6 px-5">
                             <h3>
-                                <span class="card-label fw-bolder text-dark fs-2">Project : </span>
+                                @if($task->project)
+                                <span class="card-label fw-bolder text-dark fs-2">Project :{{$task->project->name}} </span>
+                                @else
                                 <span class="text-muted mt-2 fw-bold fs-6">
-                                      <span class="text-xs font-weight-bold text-info"></span>
+                                      <span class="text-xs font-weight-bold ">Project Not assigned</span>
                                 </span>
+                                @endif
                             </h3>
                             <div class=" ">
-                                <span class="card-label fs-6"><b>Description : </b><br></span>
+                                
+                                <span class="card-label fs-6"><b>Description :  </b><br></span>
                             </div>
                         </div>
                         <div class="col-sm px-5">
@@ -77,13 +81,13 @@ Task View
                     
                                     </div>
                                     <div class="mb-3">
-                                        <span class="card-label fs-6"><b>Description : </b><br></span>
+                                        <span class="card-label fs-6"><b>Description : </b><br>{{$task->description}}</span>
                                     </div>     
                                     <div class="mb-3">
-                                        <span class="card-label fs-6"><b>Start Date : </b>18-11-2023</span>
+                                        <span class="card-label fs-6"><b>Start Date : </b>{{$task->start_date}}</span>
                                     </div>
                                     <div class="mb-3">
-                                        <span class="card-label fs-6"><b>End Date : </b>19-11-2023 </span>
+                                        <span class="card-label fs-6"><b>End Date : </b> </span>
                                     </div>                               
                                 </div>
                             </div>

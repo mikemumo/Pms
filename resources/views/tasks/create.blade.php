@@ -95,7 +95,7 @@ Task Create
                                 </div><br>
                                
                                 <div class="mb-10">
-                                    <label for="" class="form-label">Attachment File</label>
+                                    <label for="" class="form-label">Attachment File (optional)</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-code" viewBox="0 0 16 16">
@@ -103,7 +103,7 @@ Task Create
                                             <path d="M8.646 6.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 9 8.646 7.354a.5.5 0 0 1 0-.708zm-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 9l1.647-1.646a.5.5 0 0 0 0-.708z"></path>
                                             </svg>
                                         </span>
-                                    <input type="url" name="attachment" class="form-control" placeholder="Link Attachment" required="">
+                                    <input type="url" name="attachment" class="form-control" placeholder="Link Attachment">
                                     <input type="hidden" name="p_status" value="1">
                                 </div><br>
                             </div>

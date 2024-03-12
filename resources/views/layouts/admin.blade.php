@@ -92,6 +92,14 @@
                                 <span class="menu-title">Projects</span>
                             </a>
                         </li>
+                        <li class="menu-item py-1">
+                            <a href="{{route('students.index')}}" class="nav-link">
+                                <span class="menu-icon">
+                                    <i class="bi bi-person-plus"></i>
+                                </span>
+                            <span class="menu-title">Student</span>
+                            </a>
+                        </li>
                     </ul>
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="py-1">
@@ -111,15 +119,6 @@
                                     <i class="nav-icon fas fa-list"></i>
                                 </span>
                                 <span class="menu-title">Tasks</span>
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item py-1">
-                            <a href="{{route('posts.index')}}" class="nav-link">
-                                <span class="menu-icon">
-                                <i class="fas fa-comment-alt"></i>
-                                </span>
-                            <span class="menu-title">Comments</span>
                             </a>
                         </li>
 

@@ -19,7 +19,7 @@ class CreateProjectsTable extends Migration
             $table->longText('description')->nullable();
             $table->date('start_date');
             $table->date('end_date');
-            $table->string('attachment');
+            $table->integer('p_status')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->nullable();    
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

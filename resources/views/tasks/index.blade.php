@@ -38,14 +38,18 @@ Tasks
                 </td>
                 <td>{{$task->name}}</td>
                 <td class="task-state">
-                    <span class="badge badge-info">review</span>
+                    <span class="badge rounded-pill text-bg-info">review</span>
                 </td>
                 <td><td class="project-actions text-right">
                     <a class="btn btn-secondary btn-sm" href="/tasks/{{$task->id}}">
                         <i class="bi bi-arrow-up-right"></i>
                         Update
-                    </a>
+                    </a><br>
+                    <span>Task Report: </span> <br>
+                                <a href="https://www.brainkart.com/article/Exercise-5-1--Finite-Differences_38959/" rel="tooltip" title="Detail" target="_blank" class="badge badge-success">
+                                <i class="bi bi-link text-white"></i> Link </a>
                 </td>
+
                 @endforeach
             </tr>
             </tbody>

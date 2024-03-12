@@ -77,9 +77,9 @@ class TasksController extends Controller
     {
         //
         $task = Task::find($task->id); 
-        
+        $project =$task->project;
         //$task = Task::where('id', $task->id)->first();
-        return view('tasks.show', ['task'=>$task]);
+        return view('tasks.show', ['task'=>$task, 'project'=>$project]);
     }
 
     /**
