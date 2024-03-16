@@ -58,13 +58,7 @@ Project View
               </div>
               <div class="mb-3">
                   <span class="card-label fs-6"><b>End Date : </b>{{$project->end_date}} </span>
-              </div>
-              <div class="mb-3">
-                  <span class="card-label fs-6"><b>Attachment : </b></span> 
-                  <a href="https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/4dd8cb7b1c484b4b93af84d00f60fdb8/1ad4b65334e6b54ce10000000a174cb4.html" rel="tooltip" title="Detail" target="_blank" class="badge badge-success">
-                  <i class="bi bi-link text-white"></i> Link </a>
-              </div>
-          </div>
+              </div>       
           <div class="col-sm-6 px-5">
               <h3 class="card-title align-items-start flex-column mb-5">
                   <span class="card-label fw-bolder text-dark fs-5"></span>

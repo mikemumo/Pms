@@ -72,10 +72,13 @@
                 <!-- Sidebar Menu -->
                 
                 <nav class="mt-2">
+                    
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        @if(Auth::user()->role_id==1) <!--Supervisor-->
                         <li class="py-1">
                             <span class="opacity-50">Planning</span>
                         </li>
+                        
                         <li class="menu-item py-1" >
                             <a href="#" class="nav-link">
                                 <span class="menu-icon">
@@ -84,6 +87,7 @@
                                 <span class="menu-title">Dashboard</span>
                             </a>
                         </li>
+            
                         <li class="menu-item py-1">
                             <a href="{{route('projects.index')}}" class="nav-link">
                                 <span class="menu-icon">
@@ -92,6 +96,7 @@
                                 <span class="menu-title">Projects</span>
                             </a>
                         </li>
+            
                         <li class="menu-item py-1">
                             <a href="{{route('students.index')}}" class="nav-link">
                                 <span class="menu-icon">
@@ -100,6 +105,7 @@
                             <span class="menu-title">Student</span>
                             </a>
                         </li>
+            
                     </ul>
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="py-1">
@@ -123,7 +129,7 @@
                         </li>
 
                         <li class="menu-item py-1">
-                            <a href="" class="nav-link">
+                            <a href="{{route('reviews.index')}}" class="nav-link">
                                 <span class="menu-icon">
                                 <i class="fas fa-eye"></i>
                                 </span>
@@ -152,7 +158,112 @@
                             <span class="menu-title">Task Status</span>
                             </a>
                         </li>
-                    </ul>
+                    </ul> 
+                    
+                    
+            @elseif(Auth::user()->role_id==2) <!--Student-->
+            <li class="py-1">
+                <span class="opacity-50">Planning</span>
+            </li>
+            <li class="menu-item py-1" >
+                <a href="#" class="nav-link">
+                    <span class="menu-icon">
+                    <i class="nav-icon fas fa-window-maximize"></i>
+                    </span>
+                    <span class="menu-title">Dashboard</span>
+                </a>
+            </li>
+
+            <li class="menu-item py-1">
+                <a href="{{route('projects.index')}}" class="nav-link">
+                    <span class="menu-icon">
+                    <i class="nav-icon fas fa-briefcase"></i>
+                    </span>
+                    <span class="menu-title">Projects</span>
+                </a>
+            </li>
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="py-1">
+                    <span class="opacity-50">Progress</span>
+                </li>
+            <li class="menu-item">
+                <a href="{{route('schedules.index')}}" class="nav-link">
+                    <span class="menu-icon">
+                    <i class="fas fa-clipboard-list"></i>
+                    </span>
+                    <span class="menu-title">Schedule</span>
+                </a>
+            </li>
+
+            <li class="menu-item py-1">
+                <a href="{{route('tasks.index')}}" class="nav-link">
+                    <span class="menu-icon">
+                        <i class="nav-icon fas fa-list"></i>
+                    </span>
+                    <span class="menu-title">Tasks</span>
+                </a>
+            </li>
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="py-1">
+                    <span class="opacity-50">Reports</span>
+                </li>
+                <li class="menu-item py-1">
+                    <a href="" class="nav-link">
+                        <span class="menu-item">
+                        <i class="bi bi-collection"></i>
+                        </span>
+                    <span class="menu-title">Project Summary</span>
+                    </a>
+                </li>
+                <li class="menu-item py-1">
+                    <a href="" class="nav-link">
+                        <span class="menu-item">
+                        <i class="bi bi-collection"></i>
+                        </span>
+                    <span class="menu-title">Task Status</span>
+                    </a>
+                </li>
+            </ul>   
+
+
+            @elseif(Auth::user()->role_id==3) <!--Coordinator-->
+            <li class="py-1">
+                <span class="opacity-50">Planning</span>
+            </li>
+            <li class="menu-item py-1" >
+                <a href="#" class="nav-link">
+                    <span class="menu-icon">
+                    <i class="nav-icon fas fa-window-maximize"></i>
+                    </span>
+                    <span class="menu-title">Dashboard</span>
+                </a>
+            </li>
+
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="py-1">
+                    <span class="opacity-50">Reports</span>
+                </li>
+                <li class="menu-item py-1">
+                    <a href="" class="nav-link">
+                        <span class="menu-item">
+                        <i class="bi bi-collection"></i>
+                        </span>
+                    <span class="menu-title">Project Summary</span>
+                    </a>
+                </li>
+                <li class="menu-item py-1">
+                    <a href="" class="nav-link">
+                        <span class="menu-item">
+                        <i class="bi bi-collection"></i>
+                        </span>
+                    <span class="menu-title">Task Status</span>
+                    </a>
+                </li>
+            </ul>   
+
+
+            @endif
+                    
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="py-1">
                             <span class="opacity-50">Out</span>

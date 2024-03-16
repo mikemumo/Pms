@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ReviewsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,18 +16,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('projects', 'ProjectsController' );
-Route::resource('tasks', 'TasksController' );
-Route::resource('roles', 'RolesController' );
-Route::resource('users', 'UsersController' );
-Route::resource('schedules', 'SchedulesController');
-Route::get('/tasks/{task_id}', 'TasksController@showTask');
+Route::middleware(['auth'])->group(function () {
+    Route::resource('projects', 'ProjectsController' );
+    Route::resource('students', 'StudentsController');
+    Route::resource('tasks', 'TasksController' );
+    Route::resource('users', 'UsersController' );
+    Route::resource('schedules', 'SchedulesController');
+    Route::get('/tasks/{task_id}', 'TasksController@showTask');
+    Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews.index');
+    Route::get('/reviews/{id}', [ReviewsController::class, 'show'])->name('reviews.show');
+    Route::resource('students', 'StudentsController');
+});
 
-Route::resource('posts', 'PostsController');
-Route::resource('students', 'StudentsController');
-Auth::routes();
 
 
 
