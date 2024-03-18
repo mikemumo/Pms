@@ -16,7 +16,7 @@ Project View
           </h3>
           <div class="card-tools">
             <a href="{{ route('projects.index') }}" class="btn btn-light"></i> Back</a> 
-
+@if(Auth::user()->role_id==1)
             <a href="/projects/{{$project->id}}/edit" class="btn btn-info btn-sm">
                 <i class="bi bi-pencil"></i>
                 Edit
@@ -39,6 +39,7 @@ Project View
                                 <input type="hidden" name="_method" value="delete">
                                 {{ csrf_field() }}
                       </form>
+    @endif
         </div> 
 
          

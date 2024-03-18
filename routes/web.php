@@ -29,6 +29,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews.index');
     Route::get('/reviews/{id}', [ReviewsController::class, 'show'])->name('reviews.show');
     Route::resource('students', 'StudentsController');
+    Route::post('/tasks', 'TasksController@store')->name('tasks.store');
+    Route::post('/tasks/{id}/submit-review', 'ReviewsController@submitReview')->name('tasks.submit_review');
+
+
 });
 
 

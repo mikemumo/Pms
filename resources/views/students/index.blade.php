@@ -27,10 +27,13 @@ Students
                 </thead>
     
             <tbody>
+                @php
+                $i = ($students->currentPage() - 1) * $students->perPage() + 1;
+              @endphp
             
                 @foreach($students as $student)
             <tr>
-                <td>{{$student->id}}</td>
+                <td>{{$i++}}</td>
                 <td >
                     {{$student->name}}
                 </td>
@@ -65,6 +68,9 @@ Students
             </tr>
             </tbody>
             </table>
+            <div class="pagination justify-content-center mt-3">
+                {{ $students->links() }}
+            </div>
         </div>
         
     </div>

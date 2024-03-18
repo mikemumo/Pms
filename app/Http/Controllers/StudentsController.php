@@ -15,7 +15,7 @@ class StudentsController extends Controller
     {
         //   
 
-        $student = Student::all();
+        $student = Student::paginate(4);
         return view('students.index', ['students'=>$student]);
     }
 
@@ -40,8 +40,8 @@ class StudentsController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required|min:10|max:50|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
-            'course' => 'required|min:6|max:200|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
+            'name' => 'required|min:10|max:50|regex:/^([a-zA-Z]+)([\s.,a-zA-Z]+)*$/',
+            'course' => 'required|min:6|max:200|regex:/^([a-zA-Z]+)([\s.,a-zA-Z]+)*$/',
             'email'=>'required|email',
             'phone'=>'required|numeric|min:10'
            

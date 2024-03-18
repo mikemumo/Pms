@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Task;
 use App\Project;
+use App\Student;
 class ReviewsController extends Controller
 {
     /**
@@ -15,7 +16,8 @@ class ReviewsController extends Controller
     public function index()
     {
         //
-        $task=Task::all();
+        $task=Task::paginate(4);
+        $task=Task::with('student')->paginate(4);
         return view('reviews.index', ['tasks'=>$task]);
     }
 
@@ -87,4 +89,23 @@ class ReviewsController extends Controller
     {
         //
     }
+
+    public function submitReview(Request $request, $task_id)
+{
+    $task = Task::findOrFail($task_id);
+    
+    // Update task status based on the button clicked
+    if ($request->action === 'accept') {
+        $task->t_status = 1;
+    } elseif ($request->action === 'decline') {
+        $task->t_status = 2;
+    }
+    
+    // Save review and update task status
+    $task->review= $request->review;
+
+    $task->save();
+
+    return redirect()->back()->with('success', 'Review submitted successfully!');
+}
 }

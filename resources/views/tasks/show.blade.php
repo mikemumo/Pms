@@ -6,8 +6,9 @@ Task View
 <section class="container">
     <div class="card">
         <!-- Card Body -->
-        <form action="#" method="post">
+        <form action="{{route('tasks.update', [$task->id])}}" method="post">
             @csrf
+            @method('PUT')
             <!-- Project Details -->
             <div class="pb-4 px-4">
                 <div class="card-header">
@@ -50,7 +51,7 @@ Task View
                                     <path d="M8.646 6.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 9 8.646 7.354a.5.5 0 0 1 0-.708zm-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 9l1.647-1.646a.5.5 0 0 0 0-.708z"></path>
                                 </svg>
                             </span>
-                            <input type="text" name="task_attachment" class="form-control" placeholder="Attach proof of work" required="">
+                            <input type="text" name="attachment" class="form-control" placeholder="Attach proof of work" required="">
                         </div>
                     </div>
                 </div>

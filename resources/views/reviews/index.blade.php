@@ -7,7 +7,7 @@ Review
     <!--begin::Card-->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Reviw Task</h3>    
+            <h3 class="card-title">Review Task</h3>    
         </div>
         
         <div class="card-body p-0">
@@ -16,26 +16,45 @@ Review
                 <tr>
                     <th style="width: 10%">No</th>
                     <th style="width: 20%">Date</th>
-                    <th style="width: 30%">Task</th>        
-                    <th style="width: 20%" class="">Status</th>
+                    <th style="width: 30%">Task</th>  
+                    <th style="width: 15% ">Student</th>      
+                    <th style="width: 10%" class="">Status</th>
                     <th style=" ">Action</th>
                 </tr>
                 </thead>
     
             <tbody>
-            
+                @php
+                $i = ($tasks->currentPage() - 1) * $tasks->perPage() + 1;
+              @endphp
+                
                 @foreach($tasks as $task)
             <tr>
-                <td>{{$task->id}}</td>
+                <td>{{$i++}}</td>
                 <td>
                     <ul class="list-inline">
                         <li>Start date: {{$task->start_date}}</li>
                         <li>End date: {{$task->end_date}}</li>
                     </ul>
                 </td>
-                <td>{{$task->name}}</td>
-                <td class="task-state">
-                    <span class="badge badge-info">Pending</span>
+                <td><strong>{{$task->name}}</strong>
+                    <br>
+                Submitted on: <br>
+                {{$task->updated_at}}
+                </td>
+                <td>
+                    @if ($task->student)
+                    {{ $task->student->name }}
+                @else
+                    <span class="text-muted">Not Assigned</span>
+                @endif
+                </td>
+                <td class="review-state">
+                    @if(!empty($task->review))
+                    <span class="badge badge-pill badge-success">Reviewed</span>
+                    @else
+                    <span class="badge badge-pill badge-info">Pending Review</span>
+                    @endif
                 </td>
                 
                 <td><a class="btn btn-primary btn-sm" href="{{ route('reviews.show', ['id' => $task->id]) }}">
@@ -47,6 +66,9 @@ Review
             </tr>
             </tbody>
             </table>
+            <div class="pagination justify-content-center mt-3">
+                {{ $tasks->links() }}
+            </div>
         </div>
         
     </div>

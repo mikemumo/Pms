@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Task;
 use App\Project;
+use App\Student;
 use Illuminate\Support\Facades\Auth;
 class TasksController extends Controller
 {
@@ -17,7 +18,7 @@ class TasksController extends Controller
     {
         //
         
-        $task = Task::all();
+        $task = Task::paginate(3);
         return view('tasks.index', ['tasks'=>$task]);
     }
 
@@ -30,9 +31,9 @@ class TasksController extends Controller
     {
         //
         $projects=null;
-       
+        $students=Student::all();
         $project=Project::all();
-        return view('tasks.create', ['project_id'=>$project_id, 'projects'=>$project]);
+        return view('tasks.create', ['project_id'=>$project_id, 'projects'=>$project, 'students'=>$students]);
     }
 
     /**
@@ -46,21 +47,21 @@ class TasksController extends Controller
         //
         
         $request->validate([
-            'name' => 'required|min:3|max:50|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
-            'description' => 'required|min:5|max:200|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
+            'name' => 'required|min:3|max:50|regex:/^([a-zA-Z]+)([\s.,a-zA-Z]+)*$/',
+            'description' => 'required|min:5|max:200|regex:/^([a-zA-Z]+)([\s.,a-zA-Z]+)*$/',
             'start_date' => 'required|date',
-            'end_date' => 'required|date|after:start_date'
+            'end_date' => 'required|date|after:start_date',
+           
 
         ]);
         
             $task = Task::create([
                 'name' => $request->input('name'),
-                'description' => $request->input('description'),
-                'attachment'=>$request->input('attachment'),
+                'description' => $request->input('description'),            
                 'start_date'=>$request->input('start_date'),
                 'end_date'=>$request->input('end_date'),
                 'project_id'=>$request->input('project_id'),
-                
+                'student_id'=>$request->input('student_id')
             ]); 
         
        
@@ -106,19 +107,15 @@ class TasksController extends Controller
     {
         //save data
 
-        $taskUpdate = Task::where('id', $task->id)->update([
-            'name'=>$request ->input('name'),
-            'description'=>$request ->input('description'),
-            'start_date'=>$request ->input('start_date'),
-            'end_date'=>$request ->input('end_date'),
-            'attachment'=>$request ->input('attachment'),
+        $request->validate([
+            'attachment' => 'nullable|url', // Validate attachment as a URL, adjust as needed
         ]);
-                
-        if($taskUpdate){
-            return redirect()->back('tasks.index', ['Task'=>$task->id])->with('success', 'Task Updated Successfully');
-        }
+        
+        $task->attachment = $request->input('attachment');
+        $task->save();
+    
         //redirect
-        return back()->withInput();
+        return redirect()->route('tasks.index', $task->id)->with('success', 'Task Link Updated Successfully');
         
     }
 
@@ -140,4 +137,9 @@ class TasksController extends Controller
         return back()->withInput()->with('error', 'Task could not be deleted');
     
     }
+
+   
+
+
+
 }

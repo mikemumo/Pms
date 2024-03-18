@@ -12,7 +12,10 @@ class Task extends Model
         'description',
         'start_date',
         'end_date',
-        'project_id'
+        'attachment',
+        'project_id',
+        'student_id'
+        
         
         
         
@@ -30,5 +33,9 @@ class Task extends Model
 
     public function users(){
         return $this->belongsToMany('App\User');
+    }
+
+    public function student(){
+        return $this->belongsTo('App\Student');
     }
 }

@@ -10,9 +10,11 @@ Projects
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Projects</h3>
+        @if(Auth::user()->role_id==1)
         <div class="card-tools">
             <a href="{{ route('projects.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Project</a>
         </div>
+        @endif
     </div>
     
     <div class="card-body p-0">
@@ -29,9 +31,12 @@ Projects
            </thead>
 
         <tbody>
+            @php
+                $i = ($projects->currentPage() - 1) * $projects->perPage() + 1;
+              @endphp
             @foreach($projects as $project)
             <tr>
-                <td>{{$project->id}}</td>
+                <td>{{$i++}}</td>
                 <td>{{$project->name}}</td>
                 <td>
                     <ul class="list-inline">
@@ -42,13 +47,24 @@ Projects
 
                 <td class="project_progress">
                     <div class="progress progress-sm">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
-                        <small>10% Complete</small>
+                        
+                        <div class="progress-bar bg-green " role="progressbar" aria-valuenow="{{ $project->progressPercentage }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $project->progressPercentage }}%">
+                        <small>{{ $project->progressPercentage }}% Complete</small>
                         </div>
+                        
+                    </div>   
                 </td>
 
                 <td class="project-state">
-                    <span class="badge badge-info">Ongoing</span>
+                    
+                        @if ($project->p_status == 1)
+                        <span class="badge badge-pill badge-dark">New</span>
+                    @elseif ($project->p_status == 2)
+                    <span class="badge badge-pill badge-info">Ongoing</span>
+                    @else
+                    <span class="badge badge-pill badge-success">Complete</span>
+                    @endif
+                    </span>
                 </td>
 
                 <td class="project-actions text-right">
@@ -85,6 +101,9 @@ Projects
 
         </tbody>
         </table>
+        <div class="pagination justify-content-center mt-3">
+            {{ $projects->links() }}
+        </div>
     </div>
     
 </div>

@@ -19,6 +19,7 @@ class CreateTasksTable extends Migration
             $table->longText('description'); 
             $table->date('start_date'); 
             $table->date('end_date'); 
+            $table->string('attachment')->nullable();
             $table->string('review')->nullable();
             $table->integer('t_status')->unsigned()->nullable();
             $table->integer('student_id')->unsigned()->nullable();

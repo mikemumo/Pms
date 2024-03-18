@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
+use App\Task;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
+
 class ProjectsController extends Controller
 {
     /**
@@ -17,6 +20,25 @@ class ProjectsController extends Controller
         //   
 
         $project = Project::all();
+        $project = Project::with('tasks')->paginate(4);
+
+        // Calculate progress percentage for each project
+        $project->each(function ($project) {
+            $totalTask = $project->tasks->count();
+            $completedTask = $project->tasks->where('t_status', 1)->count();
+            $project->progressPercentage = $totalTask > 0 ? ($completedTask / $totalTask) * 100 : 0;
+    
+            // Determine the status based on progress percentage
+            if ($project->progressPercentage == 100) {
+                $project->p_status = 3; // Status: Complete
+            } elseif ($project->progressPercentage > 0) {
+                $project->p_status = 2; // Status: Ongoing
+            } else {
+                $project->p_status = 1; // Status: New
+            }
+        });
+   
+
         return view('projects.index', ['projects'=>$project]);
     }
 
@@ -41,8 +63,8 @@ class ProjectsController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required|min:3|max:50|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
-            'description' => 'required|min:5|max:200|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
+            'name' => 'required|min:3|max:50|regex:/^([a-zA-Z]+)([\s.,a-zA-Z]+)*$/',
+            'description' => 'required|min:5|max:200|regex:/^([a-zA-Z]+)([\s.,a-zA-Z]+)*$/',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after:start_date'
 

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Project;
+use App\Task;
 class SchedulesController extends Controller
 {
     /**
@@ -14,7 +15,8 @@ class SchedulesController extends Controller
     public function index()
     {
         //
-        return view('schedules.index');
+        $projects = Project::paginate(10);
+        return view('schedules.index', ['projects'=>$projects]);
     }
 
     /**

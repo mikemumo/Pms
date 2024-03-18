@@ -59,6 +59,17 @@ Task Create
                                     <label class="form-label">Task Description</label>
                                     <textarea type="textarea" class="form-control h-150px" name="description" placeholder="Description"  required="" ></textarea>
                                 </div> <br>  
+
+                                <div class="form-group">
+                                    <label for="student_id">Select Student</label>
+                                    <select name="student_id" class="form-control">
+                                        <option>-- Select Student --</option>
+                                        @foreach($students as $student)
+                                            <option value="{{ $student->id }}">{{ $student->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                
                                 
                             </div>
                     @if($projects == null)
@@ -94,7 +105,7 @@ Task Create
                                     <input type="date" name="end_date" class="form-control flatpickr-input" placeholder="Pick a date" id="Enddate" required=""  >
                                 </div><br>
                                
-                                <div class="mb-10">
+                                <!--<div class="mb-10">
                                     <label for="" class="form-label">Attachment File (optional)</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1">
@@ -106,7 +117,7 @@ Task Create
                                     <input type="url" name="attachment" class="form-control" placeholder="Link Attachment">
                                     <input type="hidden" name="p_status" value="1">
                                 </div><br>
-                            </div>
+                            </div>-->
                         
                         </div>
                     

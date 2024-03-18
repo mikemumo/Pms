@@ -18,8 +18,9 @@ Review
                                 <span class="fw-bolder text-dark fs-3 me-2">Review Task Report</span>
                                 <span class="text-muted mt-2 fw-bold fs-6"> - Form Submit a review</span>
                             </h3>
-                        <form action="" method="post">
+                        <form action="{{ route('tasks.submit_review', $task->id) }}" method="post">
                             @csrf
+                            
                         </div>
                         <hr class="mb-5">
 
@@ -80,7 +81,7 @@ Review
                                         <div class="input-group">
                                             <div class="mb-5">
                                                 <span class="card-label fs-6"><b>Task Attachment : </b></span> 
-                                                <a href="https://mockups-design.com/" rel="tooltip" title="Detail" target="_blank"class="badge badge-success">
+                                                <a href="{{$task->attachment}}" rel="tooltip" title="Detail" target="_blank"class="badge badge-success">
                                                 <i class="bi bi-link text-white"></i> Link </a>
                                             </div>                                                      
                                             <input type="hidden" name="id_task" value="">
@@ -90,7 +91,7 @@ Review
                                         <hr>   
 
                                         <div class="mb-5">
-                                            <label class="form-label">Review Description</label>
+                                            <label class="form-label">Review Thoughts</label>
                                             <textarea type="textarea" class="form-control h-150px" name="review" placeholder="Feedback" required></textarea>
                                         </div>
                                     <div class="d-flex align-items-center flex-nowrap text-nowrap overflow-auto py-1">

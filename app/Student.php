@@ -13,4 +13,8 @@ class Student extends Model
         'phone',
         'email'
     ];
+    
+    //Relationships
+
+    
 }
