@@ -16,6 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/ionicons.css') }}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -80,7 +81,7 @@
                         </li>
                         
                         <li class="menu-item py-1" >
-                            <a href="#" class="nav-link">
+                            <a href="{{route('dashboards.index')}}" class="nav-link">
                                 <span class="menu-icon">
                                 <i class="nav-icon fas fa-window-maximize"></i>
                                 </span>
@@ -166,7 +167,7 @@
                 <span class="opacity-50">Planning</span>
             </li>
             <li class="menu-item py-1" >
-                <a href="#" class="nav-link">
+                <a href="{{route('dashboards.index')}}" class="nav-link">
                     <span class="menu-icon">
                     <i class="nav-icon fas fa-window-maximize"></i>
                     </span>
@@ -231,7 +232,7 @@
                 <span class="opacity-50">Planning</span>
             </li>
             <li class="menu-item py-1" >
-                <a href="#" class="nav-link">
+                <a href="{{route('dashboards.index')}}" class="nav-link">
                     <span class="menu-icon">
                     <i class="nav-icon fas fa-window-maximize"></i>
                     </span>

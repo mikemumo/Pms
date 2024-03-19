@@ -31,7 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('students', 'StudentsController');
     Route::post('/tasks', 'TasksController@store')->name('tasks.store');
     Route::post('/tasks/{id}/submit-review', 'ReviewsController@submitReview')->name('tasks.submit_review');
-
+    Route::resource('dashboards', 'DashboardsController' );
 
 });
 

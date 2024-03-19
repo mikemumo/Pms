@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Project;
-use App\Task;
-class SchedulesController extends Controller
+
+class DashboardsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class SchedulesController extends Controller
     public function index()
     {
         //
-        $projects = Project::paginate(6);
-        return view('schedules.index', ['projects'=>$projects]);
+        return view('dashboards.index');
     }
 
     /**
