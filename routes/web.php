@@ -35,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('dashboards', 'DashboardsController' );
     Route::get('/schedules/{project}', 'SchedulesController@show')->name('schedules.show');
     Route::get('/projectsummaries', [ProjectSummariesController::class, 'index'])->name('projectsummaries.index');
+    Route::get('/projectsummaries/{id}', [ProjectSummariesController::class, 'show'])->name('projectsummaries.show');
 
 });
 

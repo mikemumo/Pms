@@ -6,10 +6,19 @@
 Projects
 @endsection
 <section class="content">
-
+    <style>
+        h2{
+            
+            font-size:38px;
+            font-weight:bold;
+            font-family:'Montserrat', sans-serif;
+        }
+        </style>
 <div class="card">
-    <div class="card-header">
-        <h3 class="card-title">Projects</h3>
+    <div class="card-header pt-4">
+        <h2>
+            <span>Projects</span>
+        </h2>
         @if(Auth::user()->role_id==1)
         <div class="card-tools">
             <a href="{{ route('projects.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Project</a>
@@ -17,7 +26,7 @@ Projects
         @endif
     </div>
     
-    <div class="card-body p-0">
+    <div class="card-body ">
         <table id="datatable" class="table table-striped projects">
             <thead>
             <tr>

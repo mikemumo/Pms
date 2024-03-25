@@ -6,19 +6,29 @@
 Project Edit
 @endsection
 <section class="content">
-
+    <style>
+        h2{
+            
+            font-size:38px;
+            font-weight:bold;
+            font-family:'Montserrat', sans-serif;
+        }
+        </style>
     <div class="card">
       
     <form method ="post" action="{{ route('projects.update', [$project->id])}}" >
         @csrf
         @method('PUT')
-        <div class="card-header">
-            <h3 class="card-title">Update Project Data</h3>
+        <div class="card-header pt-4">
+            <h2 >
+                <span>Update Project Data</span>
+                <span class="text-muted mt-2 fw-bold fs-6"> - Form to update Project data</span>
+            </h2>
                 <div class="card-tools">
                     <a href="{{ route('projects.index') }}" class="btn btn-light"></i> Back</a>
                     <button type="submit" value="Submit" class="btn btn-primary">Update</button>
                 </div>    
-        </div>
+        </div><br>
             
                 <div class="d-flex">
                         <div class="col-sm-6 px-5">

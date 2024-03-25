@@ -4,10 +4,18 @@
 Tasks
 @endsection
 <section class="container">
+    <style>
+        h2{
+            
+            font-size:38px;
+            font-weight:bold;
+            font-family:'Montserrat', sans-serif;
+        }
+        </style>
     <!--begin::Card-->
     <div class="card">
-        <div class="card-header">
-            <h1 class="card-title">Tasks</h1>
+        <div class="card-header pt-4">
+            <h2 >Tasks</h2>
             @if(Auth::user()->role_id==1)
             <div class="card-tools">
                 <a href="{{ route('tasks.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Task</a>
@@ -15,7 +23,7 @@ Tasks
             @endif
         </div>
         
-        <div class="card-body p-0">
+        <div class="card-body ">
             <table id="datatable" class="table table-striped projects">
                 <thead>
                 <tr>
@@ -46,7 +54,7 @@ Tasks
                     @if($task->t_status ==1)
                     <span class="badge badge-pill badge-success"><i class="bi bi-check2-all"></i>Completed</span>
                     @else
-                    <span class="badge badge-pill  badge-danger">incomplete</span>
+                    <span class="badge badge-pill  badge-danger"><i class="bi bi-x"></i>Incomplete</span>
                     @endif
                 </td>
                 <td class="project-actions text-right">

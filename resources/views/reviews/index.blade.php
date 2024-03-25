@@ -4,13 +4,22 @@
 Review
 @endsection
 <section class="container">
+
+    <style>
+        h1{
+            
+            font-size:38px;
+            font-weight:bold;
+            font-family:'Montserrat', sans-serif;
+        }
+        </style>
     <!--begin::Card-->
     <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">Review Task</h3>    
+        <div class="card-header pt-4">
+            <h1 >Review Task</h1>    
         </div>
         
-        <div class="card-body p-0">
+        <div class="card-body ">
             <table id="datatable" class="table table-striped projects">
                 <thead>
                 <tr>
@@ -59,9 +68,9 @@ Review
                 
                 <td><a class="btn btn-primary btn-sm" href="{{ route('reviews.show', ['id' => $task->id]) }}">
                     <i class="bi bi-arrow-up-right"></i>
-                    Detail
+                    Review
                 </a></td>
-
+                
                 @endforeach
             </tr>
             </tbody>

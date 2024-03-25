@@ -4,16 +4,24 @@
 Schedule
 @endsection
 <section class="container">
+    <style>
+    h1{
+            
+        font-size:38px;
+        font-weight:bold;
+        font-family:'Montserrat', sans-serif;
+    }
+    </style>
     <!--begin::Card-->
     <div class="card">
-        <div class="card-header">
-            <h1 class="card-title">Schedule</h1>
+        <div class="card-header pt-4">
+            <h1>Schedule</h1>
             <div class="card-tools">
                 
             </div>
         </div>
         
-        <div class="card-body p-0">
+        <div class="card-body ">
             <table id="datatable" class="table table-striped projects">
                 <thead>
                     <tr>

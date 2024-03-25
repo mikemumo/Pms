@@ -6,15 +6,24 @@ Project Report
 @endsection
 
 <section class="container">
+
+    <style>
+        h2{
+            
+            font-size:38px;
+            font-weight:bold;
+            font-family:'Montserrat', sans-serif;
+        }
+        </style>
     <!--begin::Card-->
     <div class="card">
         <!--begin::Section-->
         <div class="card-body p-5 p-lg-10 pb-0">
             <!--begin::Heading-->
             <div class="d-flex flex-stack flex-wrap flex-sm-nowrap">
-                <h1 class="anchor fw-bolder">
-                    <a href="#"></a>Report 
-                </h1>
+                <h2>
+                    Project Summary Report 
+                </h2>
             </div>
             <!--end::Heading-->
             <hr/>
@@ -56,7 +65,7 @@ Project Report
                                     </ul>
                                 </td>        
                                 <td>
-                                    <a href="" rel="tooltip" title="Detail" class="badge badge-success">
+                                    <a href="{{route('projectsummaries.show',$project->id)}}" class="badge badge-success">
                                         <i class="bi bi-arrow-up-right text-white"></i>Print Out
                                     </a>
                                 </td>        

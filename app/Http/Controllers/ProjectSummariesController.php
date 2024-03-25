@@ -54,6 +54,15 @@ class ProjectSummariesController extends Controller
     public function show($id)
     {
         //
+        $project = Project::findOrFail($id);
+        $tasks = Task::where('project_id', $project->id)->with('student')->get();
+        $project = Project::findOrFail($id);
+        // Calculate progress percentage for the project
+        $totalTask = $project->tasks->count();
+        $completedTask = $project->tasks->where('t_status', 1)->count();
+        $project->progressPercentage = $totalTask > 0 ? ($completedTask / $totalTask) * 100 : 0;
+        return view('projectsummaries.show', compact('project', 'tasks'));
+        
     }
 
     /**

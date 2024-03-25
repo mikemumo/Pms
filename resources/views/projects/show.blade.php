@@ -4,16 +4,24 @@
 Project View
 @endsection
 <div class="container">
+    <style>
+        h2{
+            
+            font-size:38px;
+            font-weight:bold;
+            font-family:'Montserrat', sans-serif;
+        }
+        </style>
   <!--begin Row-->
   <div class ="row g-0 g-xl-5 gxxl-8">
     <div class="col-xl-8">
     <!--begin::Table Widget 1-->
       <div class="card card-stretch mb-5 mb-xxl-8">
         <div class="card-header border-0 pt-5">
-          <h3 class="card-title align-items-start flex-column">
+          <h2>
               <span class="card-label fw-bolder text-dark fs-3">Project Details</span>
               <span class="text-muted mt-2 fw-bold fs-6"> </span>
-          </h3>
+          </h2>
           <div class="card-tools">
             <a href="{{ route('projects.index') }}" class="btn btn-light"></i> Back</a> 
 @if(Auth::user()->role_id==1)

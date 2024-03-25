@@ -4,16 +4,24 @@
 Students
 @endsection
 <section class="container">
+    <style>
+        h2{
+            
+            font-size:38px;
+            font-weight:bold;
+            font-family:'Montserrat', sans-serif;
+        }
+        </style>
     <!--begin::Card-->
     <div class="card">
-        <div class="card-header">
-            <h1 class="card-title">students</h1>
+        <div class="card-header pt-4">
+            <h2>Students</h2>
             <div class="card-tools">
-                <a href="{{ route('students.create')}}" class="btn btn-primary"></i> Add Student</a>
+                <a href="{{ route('students.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i>  Add Student</a>
             </div>
         </div>
         
-        <div class="card-body p-0">
+        <div class="card-body">
             <table id="datatable" class="table table-striped projects">
                 <thead>
                 <tr>

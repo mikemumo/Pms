@@ -7,7 +7,14 @@ Student Update
 @endsection
 <section class="content">
 
-
+    <style>
+        h2{
+            
+            font-size:38px;
+            font-weight:bold;
+            font-family:'Montserrat', sans-serif;
+        }
+        </style>
     
     <div class="card">
     <form method ="post" action="{{route('students.update', [$student->id])}}">
@@ -15,11 +22,11 @@ Student Update
         @method('PUT')
 
          
-        <div class="card-header">
-            <h3 class="card-title">
+        <div class="card-header pt-4">
+            <h2 >
                 <span class="fw-bolder text-dark fs-3 me-2">Update Student Data</span>
                 <span class="text-muted mt-2 fw-bold fs-6"> - Form to update Student data</span>
-            </h3>
+            </h2>
                 <div class="card-tools">
                     <a href="{{ route('students.index') }}" class="btn btn-light mx-5"></i> Back</a>
                  

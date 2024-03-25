@@ -5,16 +5,24 @@ Schedule
 @endsection
 
 <section class="container">
+    <style>
+        h2{
+            
+            font-size:38px;
+            font-weight:bold;
+            font-family:'Montserrat', sans-serif;
+        }
+        </style>
     <!--begin::Row-->
     <div class="row g-0 g-xl-5 g-xxl-8">
         <div class="col-xl-12">
             <!--begin::Table Widget 1-->
             <div class="card card-stretch mb-5 mb-xxl-8">
                 <!--begin::Header-->
-                <div class="card-header border-0 pt-5">
-                    <h3 class="card-title align-items-start flex-column">
+                <div class="card-header border-0 pt-4">
+                    <h2>
                         <span class="card-label fw-bolder text-dark fs-3">Schedule Details</span>
-                    </h3>
+                    </h2>
                 </div><br>
                 
                 <div class="d-flex px-10 mb-5">
