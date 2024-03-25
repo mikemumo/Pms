@@ -19,7 +19,8 @@ Schedule
                     <tr>
                         <th>No</th>
                         <th>Project</th>
-                        <th>Task Schedule</th>   
+                        <th>Task Schedule</th>  
+                        <th>Action</th> 
                     </tr>
                 </thead>
     
@@ -42,7 +43,10 @@ Schedule
                                 </div>
                             </td>
                             <td>{{ $project->tasks()->count() }}</td> <!-- Count of tasks in the project -->
-                            
+                            <td><a class="btn btn-secondary btn-sm" href="{{ route('schedules.show', $project->id) }}">
+                                <i class="bi bi-arrow-up-right"></i>
+                                Detail
+                            </a></td>
                         </tr>
                     @endforeach
                 </tbody>

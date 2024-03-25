@@ -58,7 +58,7 @@ Projects
                 <td class="project-state">
                     
                         @if ($project->p_status == 1)
-                        <span class="badge badge-pill badge-dark">New</span>
+                        <span class="badge badge-pill badge-primary">New</span>
                     @elseif ($project->p_status == 2)
                     <span class="badge badge-pill badge-info">Ongoing</span>
                     @else

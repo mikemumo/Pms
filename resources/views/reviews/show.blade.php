@@ -91,7 +91,7 @@ Review
                                         <hr>   
 
                                         <div class="mb-5">
-                                            <label class="form-label">Review Thoughts</label>
+                                            <label class="form-label">Feedback</label>
                                             <textarea type="textarea" class="form-control h-150px" name="review" placeholder="Feedback" required></textarea>
                                         </div>
                                     <div class="d-flex align-items-center flex-nowrap text-nowrap overflow-auto py-1">

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\ProjectSummariesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/tasks', 'TasksController@store')->name('tasks.store');
     Route::post('/tasks/{id}/submit-review', 'ReviewsController@submitReview')->name('tasks.submit_review');
     Route::resource('dashboards', 'DashboardsController' );
+    Route::get('/schedules/{project}', 'SchedulesController@show')->name('schedules.show');
+    Route::get('/projectsummaries', [ProjectSummariesController::class, 'index'])->name('projectsummaries.index');
 
 });
 

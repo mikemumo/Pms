@@ -63,8 +63,8 @@ class ProjectsController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required|min:3|max:50|regex:/^([a-zA-Z]+)([\s.,a-zA-Z]+)*$/',
-            'description' => 'required|min:5|max:200|regex:/^([a-zA-Z]+)([\s.,a-zA-Z]+)*$/',
+            'name' => 'required|min:5|max:50|regex:/^([a-zA-Z]+)([\s.,a-zA-Z]+)*$/',
+            'description' => 'required|min:15|max:200|regex:/^([a-zA-Z]+)([\s.,a-zA-Z]+)*$/',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after:start_date'
 
@@ -150,7 +150,7 @@ class ProjectsController extends Controller
         if($findproject->delete()){
 
             //redirect
-            return redirect()->route('projects.index')->with('success', 'project deleted successfully' );
+            return redirect()->route('projects.index')->with('success', 'Project Deleted Successfully' );
         }
         return back()->withInput()->with('error', 'project could not be deleted');
     

@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Project;
 use App\Task;
-class SchedulesController extends Controller
+use App\Student;
+class ProjectSummariesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,12 @@ class SchedulesController extends Controller
     public function index()
     {
         //
-        $projects = Project::paginate(6);
-        return view('schedules.index', ['projects'=>$projects]);
+        $projects = Project::withCount(['tasks as total_students' => function ($query) {
+            $query->selectRaw('count(distinct student_id)');
+        }])->withCount('tasks')->get();
+        
+        
+        return view('projectsummaries.index', compact('projects'));
     }
 
     /**
@@ -49,10 +54,6 @@ class SchedulesController extends Controller
     public function show($id)
     {
         //
-        $project = Project::findOrFail($id);
-        $tasks = $project->tasks()->paginate(5);
-
-        return view('schedules.show', compact('tasks', 'project'));
     }
 
     /**
