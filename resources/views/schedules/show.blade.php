@@ -23,6 +23,9 @@ Schedule
                     <h2>
                         <span class="card-label fw-bolder text-dark fs-3">Schedule Details</span>
                     </h2>
+                    <div class="card-tools">
+                        <a href="{{ route('schedules.index') }}" class="btn btn-light"></i> Back</a> 
+                    </div>
                 </div><br>
                 
                 <div class="d-flex px-10 mb-5">
@@ -45,7 +48,9 @@ Schedule
                                 <th>No</th>
                                 <th>Task Schedule</th>
                                 <th>Student</th>
+                                @if(Auth::user()->role_id==1)
                                 <th>Action</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -75,6 +80,7 @@ Schedule
                                     </ul>
                                     @endif
                                 </td>
+                                @if(Auth::user()->role_id==1)
                                 <td>
                                     <a href="#" onclick="event.preventDefault(); document.getElementById('delete-form-{{$task->id}}').submit();" class="badge badge-danger">
                                         <i class="bi bi-backspace"></i>
@@ -85,6 +91,7 @@ Schedule
                                         @method('DELETE')
                                     </form>
                                 </td>
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>

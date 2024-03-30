@@ -67,11 +67,11 @@ Projects
                 <td class="project-state">
                     
                         @if ($project->p_status == 1)
-                        <span class="badge badge-pill badge-primary">New</span>
+                        <span class="badge badge-pill badge-info"><i class="bi bi-star"></i> New</span>
                     @elseif ($project->p_status == 2)
-                    <span class="badge badge-pill badge-info">Ongoing</span>
+                    <span class="badge badge-pill badge-warning"><i class="bi bi-arrow-repeat"></i> Ongoing</span>
                     @else
-                    <span class="badge badge-pill badge-success">Complete</span>
+                    <span class="badge badge-pill badge-success"><i class="bi bi-check2"></i>Complete</span>
                     @endif
                     </span>
                 </td>

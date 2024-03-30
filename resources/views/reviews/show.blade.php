@@ -18,10 +18,12 @@ Review
                                 <span class="fw-bolder text-dark fs-3 me-2">Review Task Report</span>
                                 <span class="text-muted mt-2 fw-bold fs-6"> - Form Submit a review</span>
                             </h3>
+                            
                         <form action="{{ route('tasks.submit_review', $task->id) }}" method="post">
                             @csrf
                             
                         </div>
+                        
                         <hr class="mb-5">
 
                         <div class="d-flex">

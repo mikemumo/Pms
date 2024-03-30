@@ -61,7 +61,8 @@ class TasksController extends Controller
                 'start_date'=>$request->input('start_date'),
                 'end_date'=>$request->input('end_date'),
                 'project_id'=>$request->input('project_id'),
-                'student_id'=>$request->input('student_id')
+                'student_id'=>$request->input('student_id'),
+                't_status' => 0, // Set default status to pending
             ]); 
         
        

@@ -26,7 +26,7 @@ class ProjectsController extends Controller
         $project->each(function ($project) {
             $totalTask = $project->tasks->count();
             $completedTask = $project->tasks->where('t_status', 1)->count();
-            $project->progressPercentage = $totalTask > 0 ? ($completedTask / $totalTask) * 100 : 0;
+            $project->progressPercentage = $totalTask > 0 ? round(($completedTask / $totalTask) * 100) : 0;
     
             // Determine the status based on progress percentage
             if ($project->progressPercentage == 100) {
@@ -130,7 +130,7 @@ class ProjectsController extends Controller
         ]);
                 
         if($projectUpdate){
-            return redirect()->route('projects.index', ['project'=>$project->id])->with('success', 'Project Updated Successfully');
+            return redirect()->route('projects.show', ['project'=>$project->id])->with('success', 'Project Updated Successfully');
         }
         //redirect
         return back()->withInput();

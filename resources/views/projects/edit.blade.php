@@ -46,12 +46,12 @@ Project Edit
                             <div class="col-sm-6 px-5" id="reservationdatetime" data-target-input="nearest">
                                 <div class="mb-10">
                                     <label for="" class="form-label">Start Date</label>
-                                    <input type="text" name="start_date" class="form-control flatpickr-input" placeholder="Pick a date" id="kt_datepicker_1" readonly="true" value="{{$project->start_date}}" >
+                                    <input type="text" name="start_date" class="form-control flatpickr-input" placeholder="Pick a date" id="Startdate"  value="{{$project->start_date}}" >
                                     
                                 </div><br>
                                 <div class="mb-10">
                                     <label for="" class="form-label">End Date</label>
-                                    <input type="text" name="end_date" class="form-control flatpickr-input" placeholder="Pick a date" id="kt_datepicker_2"  readonly="readonly" value="{{$project->end_date}}">
+                                    <input type="text" name="end_date" class="form-control flatpickr-input" placeholder="Pick a date" id="Enddate"   value="{{$project->end_date}}">
                                 </div><br>
                                
                                 

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\ProjectSummariesController;
+use App\Http\Controllers\TaskStatusController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,7 +37,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/schedules/{project}', 'SchedulesController@show')->name('schedules.show');
     Route::get('/projectsummaries', [ProjectSummariesController::class, 'index'])->name('projectsummaries.index');
     Route::get('/projectsummaries/{id}', [ProjectSummariesController::class, 'show'])->name('projectsummaries.show');
-
+    Route::get('/taskstatus', [TaskStatusController::class, 'index'])->name('taskstatus.index');
+    Route::get('/taskstatus/{id}', [TaskStatusController::class, 'show'])->name('taskstatus.show');
 });
 
 

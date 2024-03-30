@@ -2,7 +2,7 @@
 
 @section('content')
 @section('title')
-Project Report
+Task Report
 @endsection
 
 <section class="container">
@@ -22,7 +22,7 @@ Project Report
             <!--begin::Heading-->
             <div class="d-flex flex-stack flex-wrap flex-sm-nowrap">
                 <h2>
-                    Project Summary Report 
+                    Task Status Report 
                 </h2>
             </div>
             <!--end::Heading-->
@@ -35,7 +35,7 @@ Project Report
                             <th>No</th>
                             <th>Project</th>
                             <th>Total Students</th>
-                            <th>Total Tasks</th>
+                            <th>Task Progress</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -49,7 +49,7 @@ Project Report
                                 <td>
                                     <ul style="list-style-type:none;padding-left:0px">
                                         <li>{{ $project->name }}</li>
-                                        <li>Date Finished : {{$project->updated_at}} </li>
+                                        <li>Date Finished : </li>
                                     </ul>
                                 </td>
                                 <td>
@@ -61,11 +61,12 @@ Project Report
                                 </td>                        
                                 <td>
                                     <ul style="list-style-type:none;padding-left:0px">
-                                        <li>{{$project->tasks()->count()}}</li>
-                                    </ul>
+                                        <li>{{$project->tasks()->count()}} Total Tasks</li>
+                                        <li>{{ $project->tasks->where('t_status', 1)->count() }} Tasks Completed</li>
+                                        
                                 </td>        
                                 <td>
-                                    <a href="{{route('projectsummaries.show',$project->id)}}" class="badge badge-success">
+                                    <a href="{{route('taskstatus.show',$project->id)}}" class="badge badge-success">
                                         <i class="bi bi-arrow-up-right text-white"></i>Print Out
                                     </a>
                                 </td>        

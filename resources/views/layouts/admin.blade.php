@@ -152,7 +152,7 @@
                             </a>
                         </li>
                         <li class="menu-item py-1">
-                            <a href="" class="nav-link">
+                            <a href="{{route('taskstatus.index')}}" class="nav-link">
                                 <span class="menu-item">
                                 <i class="bi bi-collection"></i>
                                 </span>
@@ -217,7 +217,7 @@
                     </a>
                 </li>
                 <li class="menu-item py-1">
-                    <a href="" class="nav-link">
+                    <a href="{{route('taskstatus.index')}}" class="nav-link">
                         <span class="menu-item">
                         <i class="bi bi-collection"></i>
                         </span>
@@ -253,7 +253,7 @@
                     </a>
                 </li>
                 <li class="menu-item py-1">
-                    <a href="" class="nav-link">
+                    <a href="{{route('taskstatus.index')}}" class="nav-link">
                         <span class="menu-item">
                         <i class="bi bi-collection"></i>
                         </span>

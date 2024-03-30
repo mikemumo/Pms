@@ -31,6 +31,7 @@ Tasks
                     <th style="width: 20%">Date</th>
                     <th style="width: 30%">Task</th>   
                     <th style="width: 20%" class="">Status</th>
+                    <th>Review</th>
                     <th style=" ">Action</th>
                 </tr>
                 </thead>
@@ -53,10 +54,13 @@ Tasks
                 <td class="task-state">
                     @if($task->t_status ==1)
                     <span class="badge badge-pill badge-success"><i class="bi bi-check2-all"></i>Completed</span>
-                    @else
+                    @elseif($task->t_status ==2)
                     <span class="badge badge-pill  badge-danger"><i class="bi bi-x"></i>Incomplete</span>
+                    @else
+                    <span class="badge badge-pill badge-warning"><i class="bi bi-hourglass"></i>Pending</span>
                     @endif
                 </td>
+                <td>{{$task->review}}</td>
                 <td class="project-actions text-right">
                     <a class="btn btn-secondary btn-sm" href="/tasks/{{$task->id}}">
                         <i class="bi bi-arrow-up-right"></i>

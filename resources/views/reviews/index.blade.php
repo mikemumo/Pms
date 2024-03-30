@@ -60,9 +60,9 @@ Review
                 </td>
                 <td class="review-state">
                     @if(!empty($task->review))
-                    <span class="badge badge-pill badge-success">Reviewed</span>
+                    <span class="badge badge-pill badge-success"><i class="bi bi-check"></i>Reviewed</span>
                     @else
-                    <span class="badge badge-pill badge-info">Pending Review</span>
+                    <span class="badge badge-pill badge-info"><i class="bi bi-hourglass"></i>Pending Review</span>
                     @endif
                 </td>
                 
