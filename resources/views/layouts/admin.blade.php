@@ -41,6 +41,16 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item d-none d-sm-inline-block">
+                    <span class="nav-link">
+                        <p>
+                            <i class="nav-icon fas fa-user"></i>
+                            @auth
+                                {{ Auth::user()->name }}
+                            @endauth
+                        </p>
+                    </span>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
 
                     <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
@@ -73,7 +83,27 @@
                 <!-- Sidebar Menu -->
                 
                 <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     
+                        @if(Auth::user()->role_id==4) <!--ADMIN -->
+                    <li class="menu-item py-1" >
+                            <a href="{{route('users.index')}}" class="nav-link">
+                                <span class="menu-icon">
+                                <i class="nav-icon fas fa-solid fa-users"></i>
+                                </span>
+                                <span class="menu-title">Users</span>
+                            </a>
+                        </li> 
+
+                        <li class="menu-item py-1" >
+                            <a href="{{route('roles.index')}}" class="nav-link">
+                                <span class="menu-icon">
+                                <i class="nav-icon fas fa-user-tie"></i>
+                                </span>
+                                <span class="menu-title">Roles</span>
+                            </a>
+                        </li><br>
+                        @endif
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         @if(Auth::user()->role_id==1) <!--Supervisor-->
                         <li class="py-1">

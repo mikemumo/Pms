@@ -27,6 +27,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('tasks', 'TasksController' );
     Route::resource('users', 'UsersController' );
     Route::resource('schedules', 'SchedulesController');
+    Route::resource('roles', 'RolesController');
     Route::get('/tasks/{task_id}', 'TasksController@showTask');
     Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews.index');
     Route::get('/reviews/{id}', [ReviewsController::class, 'show'])->name('reviews.show');
@@ -39,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/projectsummaries/{id}', [ProjectSummariesController::class, 'show'])->name('projectsummaries.show');
     Route::get('/taskstatus', [TaskStatusController::class, 'index'])->name('taskstatus.index');
     Route::get('/taskstatus/{id}', [TaskStatusController::class, 'show'])->name('taskstatus.show');
+
 });
 
 

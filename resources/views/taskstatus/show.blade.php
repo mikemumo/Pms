@@ -22,7 +22,7 @@ Task Report
                 <!-- Header -->
                 <div class="card-header border-0 pt-5">
                     <h1>
-                        <span class="card-label fw-bolder text-dark fs-3">TASK SUMMARY</span>
+                        <span class="card-label fw-bolder text-dark fs-3">WEEKLY TASK SUMMARY REPORT</span>
                     </h1>
                     <div class="card-tools">
                         <ul class="nav nav-pills nav-pills-sm nav-light">
@@ -54,7 +54,7 @@ Task Report
                     </div>
                     <div class="col-sm px-5">
                     <h4 class="mb-3">
-                            <span class="card-label fw-bolder text-dark fs-5">Task Progress </span>
+                            <span class="card-label fw-bolder text-dark fs-5">Task Status  </span>
                         </h4>
                         <div class="mb-3">
                             <span class="card-label fs-2 mb-5"> <b>{{ $project->progressPercentage }}%</b> </span>Completed
