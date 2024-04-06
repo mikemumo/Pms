@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Task;
 use App\Project;
 use App\Student;
+
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 class TasksController extends Controller
 {
@@ -64,7 +66,13 @@ class TasksController extends Controller
                 'student_id'=>$request->input('student_id'),
                 't_status' => 0, // Set default status to pending
             ]); 
-        
+            
+            DB::transaction(function () use ($task) {
+                // Your attachment creation or update logic here...
+            
+                // Update the task's updated_at timestamp
+                $task->touch(); // This will update the task's updated_at timestamp to the current time
+            });
        
         return redirect()->route('tasks.index')->with('success', 'Task Added Successfully');
     }
@@ -111,6 +119,13 @@ class TasksController extends Controller
         $request->validate([
             'attachment' => 'nullable|url', // Validate attachment as a URL, adjust as needed
         ]);
+        
+        DB::transaction(function () use ($task) {
+            // Your attachment creation or update logic here...
+        
+            // Update the task's updated_at timestamp
+            $task->touch(); // This will update the task's updated_at timestamp to the current time
+        });
         
         $task->attachment = $request->input('attachment');
         $task->save();

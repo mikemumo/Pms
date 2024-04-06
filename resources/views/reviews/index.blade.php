@@ -49,7 +49,11 @@ Review
                 <td><strong>{{$task->name}}</strong>
                     <br>
                 Submitted on: <br>
-                {{$task->updated_at}}
+                @if($task->attachment)
+                {{ $task->updated_at->format('Y-m-d H:i') }}
+            @else
+                N/A
+            @endif
                 </td>
                 <td>
                     @if ($task->student)
@@ -59,11 +63,13 @@ Review
                 @endif
                 </td>
                 <td class="review-state">
-                    @if(!empty($task->review))
-                    <span class="badge badge-pill badge-success"><i class="bi bi-check"></i>Reviewed</span>
-                    @else
-                    <span class="badge badge-pill badge-info"><i class="bi bi-hourglass"></i>Pending Review</span>
-                    @endif
+                    @if($task->t_status === 1)
+                    <span class="badge badge-pill badge-success"><i class="bi bi-check"></i> Reviewed</span>
+                @elseif($task->t_status === 2)
+                    <span class="badge badge-pill badge-warning"><i class="bi bi-hourglass"></i> Re-review</span>
+                @else
+                    <span class="badge badge-pill badge-info"><i class="bi bi-hourglass"></i> Pending Review</span>
+                @endif
                 </td>
                 
                 <td><a class="btn btn-primary btn-sm" href="{{ route('reviews.show', ['id' => $task->id]) }}">

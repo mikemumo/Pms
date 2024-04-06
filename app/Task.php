@@ -38,4 +38,9 @@ class Task extends Model
     public function student(){
         return $this->belongsTo('App\Student');
     }
+
+     public function attachment()
+    {
+        return $this->hasOne(TaskAttachment::class);
+    }
 }

@@ -99,6 +99,7 @@ class ReviewsController extends Controller
         $task->t_status = 1;
     } elseif ($request->action === 'decline') {
         $task->t_status = 2;
+        $task->review = $request->review;
     }
     
     // Save review and update task status
@@ -106,6 +107,8 @@ class ReviewsController extends Controller
 
     $task->save();
 
-    return redirect()->back()->with('success', 'Review submitted successfully!');
+    return redirect()->route('reviews.index')->with('success', 'Review submitted successfully!');
 }
+
+
 }
